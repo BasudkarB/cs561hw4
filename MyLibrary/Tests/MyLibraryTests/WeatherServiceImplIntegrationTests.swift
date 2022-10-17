@@ -13,7 +13,6 @@ class WeatherServiceImplIntegrationTests: XCTestCase {
         
         //Then
         XCTAssertNotNil(isLuckyNumber)
-        
     }
     func test2() async {
         
