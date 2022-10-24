@@ -4,7 +4,7 @@ import XCTest
 
 class WeatherServiceImplIntegrationTests: XCTestCase {
     
-    func testingTheRealDeal() async {
+    func test1() async {
         
         let myLibrary = MyLibrary(weatherService: WeatherServiceImpl())
         
@@ -15,7 +15,7 @@ class WeatherServiceImplIntegrationTests: XCTestCase {
         XCTAssertNotNil(isLuckyNumber)
         
     }
-    func testingMock() async {
+    func test2() async {
         
         let myLibrary = MyLibrary(weatherService: WeatherServiceImpl(baseUrl: .mock))
         
