@@ -13,11 +13,13 @@ class WeatherServiceImplIntegrationTests: XCTestCase {
         
         //Then
         XCTAssertNotNil(isLuckyNumber)
+
         
     }
     func test2() async {
         
         let myLibrary = MyLibrary(weatherService: WeatherServiceImpl(baseUrl: .mockapi))
+
         
         //When
         let isLuckyNumber = await myLibrary.isLucky(0)
