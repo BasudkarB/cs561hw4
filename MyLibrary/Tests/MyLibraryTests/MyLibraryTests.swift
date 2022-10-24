@@ -3,7 +3,7 @@ import XCTest
 
 final class MyLibraryTests: XCTestCase {
     
-    func testFilepath() throws {
+    func test() throws {
         
         let filePath = try XCTUnwrap(Bundle.module.path(forResource: "data", ofType: "json"))
         let jsonString = try String(contentsOfFile: filePath)

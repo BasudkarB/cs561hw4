@@ -4,13 +4,30 @@ public protocol WeatherService {
     func getTemperature() async throws -> Int
 }
 
-enum BaseUrl {
-    case mock
-    case real
+enum BaseUrl :String {
+    case realapi = "https://api.openweathermap.org/data/2.5/weather"
+    case mockapi = "https://assign5b.herokuapp.com/data/2.5/weather"
 }
 
 class WeatherServiceImpl: WeatherService {
-    let url = "https://api.openweathermap.org/data/2.5/weather?q=corvallis&units=imperial&appid=1900765e0a715901f579ab8c62df9610"
+
+    
+    // let url = "https://api.openweathermap.org/data/2.5/weather?q=corvallis&units=imperial&appid=1900765e0a715901f579ab8c62df9610"
+
+    // let url = "https://assign5b.herokuapp.com/data/2.5/weather"
+
+    private let baseUrl: BaseUrl
+    private let url: String
+    
+    public init(baseUrl: BaseUrl? = nil) {
+        self.baseUrl = baseUrl ?? .realapi
+        if self.baseUrl == .realapi {
+            url = "https://api.openweathermap.org/data/2.5/weather?q=corvallis&units=imperial&appid=1900765e0a715901f579ab8c62df9610"
+        }
+        else {
+            url = "https://assign5b.herokuapp.com/data/2.5/weather"
+        }
+    }
 
     func getTemperature() async throws -> Int {
         return try await withCheckedThrowingContinuation { continuation in
